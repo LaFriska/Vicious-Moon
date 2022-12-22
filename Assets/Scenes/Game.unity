@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576d99028325fe242a745d4332ebbba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 21300000, guid: fc6ce7049c0766848b1397308c2ffc3d, type: 3}
+  tile: {fileID: 21300000, guid: d7e05260de7890f4fa7b8787145fdd9e, type: 3}
   horizontalWorldSize: 100
   verticalWorldSize: 300
   terrainFreq: 0.03

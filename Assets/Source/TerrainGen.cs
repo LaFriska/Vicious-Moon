@@ -51,7 +51,7 @@ public class TerrainGen : MonoBehaviour
     {
         GameObject newTile = new GameObject(name = "tile");
         newTile.transform.parent = this.transform;
-        newTile.transform.localScale = new Vector3(3.125F, 3.125F, 3.125F);
+        newTile.transform.localScale = new Vector3(6.25F, 6.25F, 6.25F);
         newTile.AddComponent<SpriteRenderer>();
         newTile.GetComponent<SpriteRenderer>().sprite = tile;
         newTile.transform.position = new Vector2(x + 0.5F, y + 0.5F);
