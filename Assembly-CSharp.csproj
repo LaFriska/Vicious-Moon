@@ -41,12 +41,14 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Source\TerrainGen.cs" />
      <Compile Include="Assets\Source\Blocks\Block.cs" />
+     <Compile Include="Assets\Source\TerrainGen.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets\Sprites\Background" />
+     <Folder Include="Assets\Unity.VisualScripting.Generated" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Sprites" />
+     <Folder Include="Assets\Unity.VisualScripting.Generated\VisualScripting.Flow" />
      <Folder Include="Assets\Textures" />
      <Folder Include="Assets\Source\World" />
      <Folder Include="Assets\Source\Blocks" />
