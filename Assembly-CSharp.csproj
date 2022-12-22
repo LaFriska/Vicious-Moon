@@ -42,10 +42,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Source\TerrainGen.cs" />
+     <Compile Include="Assets\Source\Blocks\Block.cs" />
      <Folder Include="Assets" />
+     <Folder Include="Assets\Sprites\Background" />
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Sprites" />
      <Folder Include="Assets\Textures" />
+     <Folder Include="Assets\Source\World" />
+     <Folder Include="Assets\Source\Blocks" />
      <Folder Include="Assets\Source" />
      <Reference Include="UnityEngine">
      <HintPath>D:\DEV\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

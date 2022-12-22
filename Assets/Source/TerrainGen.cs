@@ -4,24 +4,27 @@ using UnityEngine.Serialization;
 
 public class TerrainGen : MonoBehaviour
 {
-
-    public Sprite tile;
+    
+    public Sprite desolateRock;
+    public Sprite desolateDirt;
+    public int desolateDirtHeight = 5;
     
     //Size of the world.
     public int horizontalWorldSize = 100;
     public int verticalWorldSize = 100;
     //Noise frequency changes how frequent hills are generated.
-    [FormerlySerializedAs("noiseFreq")] public float terrainFreq = 0.07F;
+    public float terrainFreq = 0.07F;
     //Height multiplier determines how tall hills are.
     public float heightMultiplier = 4f;
     //How deep the world is.
     public int heightAddition = 25;
     //Seed
     public float seed = 0;
-    //How often caves generate
+    
+    //Caves
     public float caveFreq = 0.5F;
-    //Size of the caves
     public float caveSize = 0.7F;
+    public int caveDepth = 20;
     
     
     
@@ -39,21 +42,29 @@ public class TerrainGen : MonoBehaviour
         for (int x = 0; x <= horizontalWorldSize - 1; x++)
         {
             float height = Mathf.PerlinNoise((x + seed) * terrainFreq, seed * terrainFreq) * heightMultiplier + heightAddition;
-            
+
             for (int y = 0; y <= height - 1; y++)
             {
-                if (noiseTexture.GetPixel(x, y).r > caveSize) generateTile(x,y);
+                if (y < height - desolateDirtHeight)
+                {
+                    if (noiseTexture.GetPixel(x, y).r > caveSize || y >= height - caveDepth) GenerateTile(x,y, desolateRock);
+                }
+                else
+                {
+                    GenerateTile(x,y, desolateDirt);
+                }
             }
         }
     }
 
-    private void generateTile(int x, int y)
+    private void GenerateTile(int x, int y, Sprite sprite)
     {
         GameObject newTile = new GameObject(name = "tile");
         newTile.transform.parent = this.transform;
-        newTile.transform.localScale = new Vector3(6.25F, 6.25F, 6.25F);
+        //newTile.transform.localScale = new Vector3(6.25F, 6.25F, 6.25F);
         newTile.AddComponent<SpriteRenderer>();
-        newTile.GetComponent<SpriteRenderer>().sprite = tile;
+        newTile.GetComponent<SpriteRenderer>().sprite = sprite;
+        newTile.name = sprite.name;
         newTile.transform.position = new Vector2(x + 0.5F, y + 0.5F);
     }
 
